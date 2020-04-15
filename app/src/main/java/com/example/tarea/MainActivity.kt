@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var button7: Button
     lateinit var button8: Button
     lateinit var button9: Button
-    private var clicables = Array(10){false}
     private var turno: Boolean = true
     private var turn: Int = 1
     private var pos: Int = 0
@@ -103,17 +102,6 @@ class MainActivity : AppCompatActivity() {
             button.setBackgroundColor(0xFF00FF00.toInt())
     }
 
-    private val listener =
-        View.OnClickListener {
-
-            clicables[3]=true
-            if(turno){
-                button3.setBackgroundColor(0xFF00FF00.toInt())
-                turno = !turno
-            }
-            else
-                button3.setBackgroundColor(0xFFFF0000.toInt())
-        }
 
 
 
@@ -340,13 +328,6 @@ class MainActivity : AppCompatActivity() {
         return but
     }
 
-    fun jugar(){
-
-            if(!turno){
-                playerBTurn(randomizer())
-            }
-
-    }
 
 
 
