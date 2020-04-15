@@ -151,7 +151,7 @@ class MainActivity : AppCompatActivity() {
             var a = switch(pos)!!.background as ColorDrawable
             var b  = switch(pos+1)!!.background as ColorDrawable
             var c = switch(pos+2)!!.background as ColorDrawable
-            if(a.color == b.color &&  a.color == c.color )
+            if(a.color == b.color &&  a.color == c.color && a.color != 0xFF0000FF.toInt())
             {
                 showWinner(msg)
                 Log.d("Uh", "Gano")
@@ -163,7 +163,7 @@ class MainActivity : AppCompatActivity() {
             var a = switch(pos)!!.background as ColorDrawable
             var b  = switch(pos-1)!!.background as ColorDrawable
             var c = switch(pos+1)!!.background as ColorDrawable
-            if(a.color == b.color &&  a.color == c.color)
+            if(a.color == b.color &&  a.color == c.color && a.color != 0xFF0000FF.toInt())
                 {showWinner(msg)
                     Log.d("Uh", "Gano")
                 }
@@ -172,7 +172,7 @@ class MainActivity : AppCompatActivity() {
             var a = switch(pos)!!.background as ColorDrawable
             var b  = switch(pos-1)!!.background as ColorDrawable
             var c = switch(pos-2)!!.background as ColorDrawable
-            if(a.color == b.color &&  a.color == c.color)
+            if(a.color == b.color &&  a.color == c.color && a.color != 0xFF0000FF.toInt())
                 {showWinner(msg)
                     Log.d("Uh", "Gano")
                 }
@@ -184,7 +184,7 @@ class MainActivity : AppCompatActivity() {
             var a = switch(pos)!!.background as ColorDrawable
             var b  = switch(pos+3)!!.background as ColorDrawable
             var c = switch(pos+6)!!.background as ColorDrawable
-            if(a.color == b.color &&  a.color == c.color )
+            if(a.color == b.color &&  a.color == c.color && a.color != 0xFF0000FF.toInt())
             {
                 showWinner(msg)
                 Log.d("Uh", "Gano")
@@ -196,7 +196,7 @@ class MainActivity : AppCompatActivity() {
             var a = switch(pos)!!.background as ColorDrawable
             var b  = switch(pos-3)!!.background as ColorDrawable
             var c = switch(pos+3)!!.background as ColorDrawable
-            if(a.color == b.color &&  a.color == c.color)
+            if(a.color == b.color &&  a.color == c.color && a.color != 0xFF0000FF.toInt())
             {showWinner(msg)
                 Log.d("Uh", "Gano")
             }
@@ -205,7 +205,7 @@ class MainActivity : AppCompatActivity() {
             var a = switch(pos)!!.background as ColorDrawable
             var b  = switch(pos-3)!!.background as ColorDrawable
             var c = switch(pos-6)!!.background as ColorDrawable
-            if(a.color == b.color &&  a.color == c.color)
+            if(a.color == b.color &&  a.color == c.color && a.color != 0xFF0000FF.toInt())
             {showWinner(msg)
                 Log.d("Uh", "Gano")
             }
@@ -217,7 +217,7 @@ class MainActivity : AppCompatActivity() {
             var a = switch(pos)!!.background as ColorDrawable
             var b  = switch(pos+4)!!.background as ColorDrawable
             var c = switch(pos+8)!!.background as ColorDrawable
-            if(a.color == b.color &&  a.color == c.color)
+            if(a.color == b.color &&  a.color == c.color && a.color != 0xFF0000FF.toInt())
             {showWinner(msg)
                 Log.d("Uh", "Gano")
             }
@@ -226,14 +226,14 @@ class MainActivity : AppCompatActivity() {
             var a = switch(pos)!!.background as ColorDrawable
             var b  = switch(pos+4)!!.background as ColorDrawable
             var c = switch(pos-4)!!.background as ColorDrawable
-            if(a.color == b.color &&  a.color == c.color)
+            if(a.color == b.color &&  a.color == c.color && a.color != 0xFF0000FF.toInt())
             {showWinner(msg)
                 Log.d("Uh", "Gano")
             }
             a = switch(pos)!!.background as ColorDrawable
             b  = switch(pos+2)!!.background as ColorDrawable
             c = switch(pos-2)!!.background as ColorDrawable
-            if(a.color == b.color &&  a.color == c.color)
+            if(a.color == b.color &&  a.color == c.color && a.color != 0xFF0000FF.toInt())
             {showWinner(msg)
                 Log.d("Uh", "Gano")
             }
@@ -244,7 +244,7 @@ class MainActivity : AppCompatActivity() {
             var a = switch(pos)!!.background as ColorDrawable
             var b  = switch(pos+2)!!.background as ColorDrawable
             var c = switch(pos+4)!!.background as ColorDrawable
-            if(a.color == b.color &&  a.color == c.color)
+            if(a.color == b.color &&  a.color == c.color && a.color != 0xFF0000FF.toInt())
             {showWinner(msg)
                 Log.d("Uh", "Gano")
             }
@@ -253,7 +253,7 @@ class MainActivity : AppCompatActivity() {
             var a = switch(pos)!!.background as ColorDrawable
             var b  = switch(pos-2)!!.background as ColorDrawable
             var c = switch(pos-4)!!.background as ColorDrawable
-            if(a.color == b.color &&  a.color == c.color)
+            if(a.color == b.color &&  a.color == c.color && a.color != 0xFF0000FF.toInt())
             {showWinner(msg)
                 Log.d("Uh", "Gano")
             }
@@ -262,7 +262,7 @@ class MainActivity : AppCompatActivity() {
             var a = switch(pos)!!.background as ColorDrawable
             var b  = switch(pos-4)!!.background as ColorDrawable
             var c = switch(pos-8)!!.background as ColorDrawable
-            if(a.color == b.color &&  a.color == c.color)
+            if(a.color == b.color &&  a.color == c.color && a.color != 0xFF0000FF.toInt())
             {showWinner(msg)
                 Log.d("Uh", "Gano")
             }
@@ -281,12 +281,16 @@ class MainActivity : AppCompatActivity() {
         builder.setTitle(msg)
         builder.setMessage("Gracias por participar")
         builder.setPositiveButton("Reiniciar"){dialog, which ->
-            init()
+            restart()
         }
         builder.show()
 
     }
 
+    fun restart() {
+        finish();
+        startActivity(getIntent());
+    }
 
 
     fun randomizer(): Int{
